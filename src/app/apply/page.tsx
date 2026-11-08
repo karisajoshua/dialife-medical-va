@@ -1,0 +1,1 @@
+export default function Apply(){return <main style={{maxWidth:680,margin:"80px auto",padding:24,fontFamily:"Arial"}}><a href="/">← Dialife Medical VA</a><h1>Medical VA Academy Applications</h1><p>Online applications are being prepared. Please check back soon.</p><p>Training does not guarantee employment.</p></main>}
