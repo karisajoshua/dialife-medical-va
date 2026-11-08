@@ -86,3 +86,43 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #10
 @media(max-width:950px){.site-desktop-nav,.site-header-actions{display:none}.site-menu-toggle{display:block}.site-mobile-nav{display:flex;flex-direction:column;gap:0;padding:8px 24px 22px;border-top:1px solid #e6eff0;max-height:75vh;overflow:auto}.site-mobile-nav a{padding:13px 6px;border-bottom:1px solid #e8eff0;font-weight:700;color:#284a5e}.site-mobile-nav a[aria-current="page"]{color:#008f87}.site-footer-inner{grid-template-columns:repeat(2,1fr);gap:35px}}
 @media(max-width:600px){.site-header-inner{min-height:70px;padding:10px 20px}.site-footer{margin-top:45px;padding-top:42px}.site-footer-inner{grid-template-columns:1fr 1fr;gap:30px 16px}.site-footer-intro{grid-column:1/-1}.site-footer-bottom{flex-direction:column}.content-page{padding-top:38px}.content-page h1{letter-spacing:-1.4px}.content-card{padding:24px}.content-cta{padding:28px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* Academy: outcome-driven curriculum */
+.academy-page .lead{max-width:930px}
+.academy-highlights{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 64px}
+.academy-highlights span{display:inline-flex;align-items:center;gap:9px;padding:12px 17px;background:#eaf8f6;border:1px solid #cde9e5;border-radius:40px;font-size:13px;font-weight:700;color:#0a5763}
+.academy-highlights svg{width:19px;height:19px;color:#098f86}
+.academy-intro{display:grid;grid-template-columns:1.4fr .65fr;gap:45px;align-items:center;margin:40px 0 34px}
+.academy-intro h2{font-size:clamp(29px,4vw,43px);line-height:1.15;letter-spacing:-1.4px;margin:12px 0}
+.academy-intro p{color:#476879;line-height:1.7;font-size:16px}
+.academy-intro-note{padding:30px;border-radius:20px;background:#0a3d50;color:#fff}
+.academy-intro-note svg{color:#63e7d7}.academy-intro-note strong{display:block;font-size:22px;margin-top:13px}
+.academy-intro-note p{color:#d5e9ed;font-size:14px;margin-bottom:0}
+.academy-week-list{display:grid;gap:25px}
+.academy-week{border:1px solid #d8e7e8;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 14px 36px #0c53600b}
+.academy-week-head{display:flex;gap:28px;align-items:flex-start;padding:35px 40px;background:linear-gradient(110deg,#f1faf9,#e8f5f6)}
+.academy-week-number{font-size:clamp(44px,7vw,72px);font-weight:800;line-height:1;color:#0a968e;letter-spacing:-4px}
+.academy-week-head h2{font-size:clamp(25px,3vw,35px);letter-spacing:-1px;margin:8px 0}
+.academy-week-head p{color:#456878;line-height:1.65;margin:0;font-size:16px}
+.academy-week-body{display:grid;grid-template-columns:1.15fr .85fr;gap:38px;padding:35px 40px}
+.academy-week-body h3{font-size:17px;margin:0 0 17px}
+.academy-week-body ul{list-style:none;padding:0;margin:0}
+.academy-week-body li{display:flex;align-items:flex-start;gap:12px;margin:13px 0;font-size:14px;line-height:1.55;color:#365c6e}
+.academy-week-body li svg{flex-shrink:0;color:#0a9d90;margin-top:2px}
+.academy-week-practice{background:#edf8f7;border-radius:16px;padding:25px}
+.academy-week-practice h3{display:flex;align-items:center;gap:9px;margin:0 0 8px;color:#0a5662}
+.academy-week-practice h3:not(:first-child){margin-top:24px}
+.academy-week-practice p{font-size:14px;line-height:1.65;margin:0;color:#426578}
+.academy-why{padding:75px 0 35px}
+.academy-why>h2{font-size:clamp(27px,3vw,36px);letter-spacing:-1px}
+.academy-why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:25px}
+.academy-why-grid article{padding:25px 22px;border:1px solid #dcebea;border-radius:17px;background:#f7fbfb}
+.academy-why-grid svg{color:#0a9a91}
+.academy-why-grid h3{font-size:17px;margin:15px 0 8px}
+.academy-why-grid p{font-size:14px;line-height:1.65;color:#4a6c7b}
+.academy-fit{border-top:1px solid #dce9ea;padding:25px 0 40px}
+.academy-fit h2{font-size:30px}
+.academy-fit p{line-height:1.8;color:#426477;font-size:16px;max-width:950px}
+.academy-disclaimer{font-size:13px;color:#637d88;line-height:1.7;margin-top:22px}
+@media(max-width:850px){.academy-intro{grid-template-columns:1fr}.academy-week-body{grid-template-columns:1fr;gap:22px}.academy-why-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.academy-highlights{margin-bottom:42px}.academy-week-head{padding:26px 22px;gap:16px}.academy-week-number{font-size:43px;letter-spacing:-2px}.academy-week-body{padding:23px 20px}.academy-week-practice{padding:20px}.academy-why-grid{grid-template-columns:1fr}.academy-why{padding-top:50px}.academy-intro-note{padding:24px}}
