@@ -1,0 +1,1 @@
+export default function EmployerRegister(){return <main style={{maxWidth:680,margin:"80px auto",padding:24,fontFamily:"Arial"}}><a href="/">← Dialife Medical VA</a><h1>Hire a Medical Virtual Assistant</h1><p>Our employer enquiry and verification portal is being prepared.</p></main>}
