@@ -126,3 +126,20 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #10
 .academy-disclaimer{font-size:13px;color:#637d88;line-height:1.7;margin-top:22px}
 @media(max-width:850px){.academy-intro{grid-template-columns:1fr}.academy-week-body{grid-template-columns:1fr;gap:22px}.academy-why-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.academy-highlights{margin-bottom:42px}.academy-week-head{padding:26px 22px;gap:16px}.academy-week-number{font-size:43px;letter-spacing:-2px}.academy-week-body{padding:23px 20px}.academy-week-practice{padding:20px}.academy-why-grid{grid-template-columns:1fr}.academy-why{padding-top:50px}.academy-intro-note{padding:24px}}
+
+/* Human-centered homepage storytelling */
+.story-section{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);padding-top:95px;padding-bottom:90px;align-items:center}
+.story-intro h2{font-size:clamp(34px,4.3vw,55px);line-height:1.12;letter-spacing:-1.8px;margin:18px 0 22px;color:#0b3547}
+.story-intro h2 em{font-style:normal;color:#0a9189}
+.story-intro p{color:#476a78;font-size:17px;line-height:1.85}
+.story-link{display:inline-flex;align-items:center;gap:10px;font-weight:800;color:#087c7b;margin-top:17px;border-bottom:2px solid #0aa49b;padding-bottom:8px}
+.story-moments{display:grid;gap:14px}
+.story-moments article{padding:24px 29px;border-radius:18px;border:1px solid #d9eae9;background:#f6fbfb}
+.story-moments article:nth-child(2){background:#e9f7f4}
+.story-moments span{font-size:11px;letter-spacing:1.8px;font-weight:800;color:#0b8d88}
+.story-moments h3{font-size:22px;color:#123c4d;margin:10px 0}
+.story-moments p{font-size:14px;color:#526f7c;line-height:1.7;margin:0}
+.trust-section{margin-top:60px;margin-bottom:60px;padding:34px 42px;border:1px solid #cfe6e5;background:#f1faf9;border-radius:22px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.trust-section h2{font-size:clamp(25px,3vw,36px);letter-spacing:-1px;margin:12px 0 0;color:#0c394b}
+.trust-section p{line-height:1.8;color:#436575;font-size:15px}
+@media(max-width:800px){.story-section{grid-template-columns:1fr;padding-top:55px;padding-bottom:55px}.trust-section{grid-template-columns:1fr;gap:12px;padding:26px 24px}}
