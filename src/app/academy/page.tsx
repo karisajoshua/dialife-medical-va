@@ -1,0 +1,1 @@
+export default function Academy(){return <main style={{maxWidth:680,margin:"80px auto",padding:24,fontFamily:"Arial"}}><a href="/">← Dialife Medical VA</a><h1>Medical VA Academy</h1><p>Four weeks of online training in healthcare administration, patient communication, privacy awareness and practical simulation.</p><a href="/apply">Apply for Training →</a></main>}
