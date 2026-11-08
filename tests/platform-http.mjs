@@ -1,21 +1,21 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import { dirname, join, resolve } from "node:path";
 import { createServerClient } from "@supabase/ssr";
-const fixturePath =
-  process.env.PLATFORM_TEST_FIXTURE ||
-  "/workspace/scratch/4cb5de73c86d/platform-test-fixture.json";
+const fixturePath = process.env.PLATFORM_TEST_FIXTURE;
+if (!fixturePath)
+  throw new Error(
+    "Set PLATFORM_TEST_FIXTURE to an isolated test-identity JSON file outside the repository.",
+  );
 const fixture = JSON.parse(fs.readFileSync(fixturePath, "utf8"));
+const outputDir =
+  process.env.PLATFORM_TEST_OUTPUT_DIR || dirname(resolve(fixturePath));
+const output = join(outputDir, "platform-test-records.json");
 const base = process.env.TEST_BASE_URL || "http://127.0.0.1:3001";
 const records =
   process.env.PLATFORM_TEST_RESUME === "1"
-    ? JSON.parse(
-        fs.readFileSync(
-          "/workspace/scratch/4cb5de73c86d/platform-test-records.json",
-          "utf8",
-        ),
-      ).records
+    ? JSON.parse(fs.readFileSync(output, "utf8")).records
     : [];
-const output = "/workspace/scratch/4cb5de73c86d/platform-test-records.json";
 const clients = {};
 let assertions = 0;
 function ok(condition, message) {
@@ -67,6 +67,10 @@ async function call(who, path, method = "GET", body, expected = 200) {
     `${method} ${path}: ${JSON.stringify(result)}`,
   );
   assertions++;
+  if (process.env.PLATFORM_TEST_VERBOSE === "1")
+    console.log(
+      `${assertions}: ${method} ${path.split("?")[0]} → ${response.status}`,
+    );
   return result;
 }
 async function create(who, key, body) {
@@ -376,7 +380,7 @@ const { error: uploadError } = await clients.learner.client.storage
 assert.ifError(uploadError);
 assertions++;
 fs.writeFileSync(
-  "/workspace/scratch/4cb5de73c86d/platform-test-file.json",
+  join(outputDir, "platform-test-file.json"),
   JSON.stringify({ owner: "learner", path: objectPath }),
 );
 const doc = await call(
@@ -438,7 +442,7 @@ const result = {
   completedAt: new Date().toISOString(),
 };
 fs.writeFileSync(
-  "/workspace/scratch/4cb5de73c86d/platform-http-result.json",
+  join(outputDir, "platform-http-result.json"),
   JSON.stringify(result, null, 2),
 );
 console.log(JSON.stringify(result));

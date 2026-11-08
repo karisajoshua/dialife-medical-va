@@ -99,3 +99,21 @@ verified test identities supplied outside the repository. It requires a test
 fixture path and never sends invitation or verification emails. No test password
 or token belongs in git. `tests/run-http.mjs` starts a production-build server
 for these HTTP checks and stops it afterward.
+
+Production verification results and remaining Auth configuration are recorded in
+`docs/platform-verification.md`.
+
+To run the HTTP checks against a non-production test deployment:
+
+```sh
+PLATFORM_TEST_FIXTURE=/absolute/private/path/fixtures.json \
+TEST_BASE_URL=https://your-test-deployment.example \
+node --use-env-proxy --env-file=.env.local tests/platform-http.mjs
+```
+
+The fixture JSON supplies `run` and a `users` map with `admin`, `learner`, `other`,
+`trainer`, `employer`, `other_employer`, and `va`, each containing `id`, `email`, and
+`password`. Provision only disposable, confirmed identities in an isolated test
+project, with their roles assigned by a trusted administrator. Output files are
+written beside the fixture file, or to `PLATFORM_TEST_OUTPUT_DIR`. The tracked
+record IDs support targeted cleanup; revoke test accounts after completion.
