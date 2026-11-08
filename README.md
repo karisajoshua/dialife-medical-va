@@ -149,3 +149,32 @@ Dialife Medical VA is a Dialife Ltd initiative. Business and legal details are s
 
 ---
 **Current milestone:** Marketing homepage and navigation foundations. **Next:** Preview deployment, visual review, and functional application flows.
+
+
+## Approved dashboard implementation
+
+Open `/dashboard` for the responsive Operations Command Center. The marketing
+header and footer remain on public pages; dashboards have dedicated navigation.
+The portal preview entry point at `/login` links to the dashboard.
+
+- All five role workspaces are available under `/dashboard/{role}`.
+- Sidebar modules cover applications, cohorts, programs, assessments, placements
+  and reports; the employer partners list opens from its metric card.
+- Search, filtering, sample application review, cohort / employer demo creation,
+  task completion, event details and sample CSV downloads work with fictional data.
+- Demo actions use page state and reset on reload; no private records are fetched.
+- See [design QA](design-qa.md), [visual comparison](docs/qa/comparison.jpg),
+  and [data boundary](docs/dashboard-security.md).
+
+Run `npm ci`, `npm run dev` and `npm run build`. The dev wrapper accepts normal
+Next flags plus preview-host `--host`, `--port` and `--strictPort` flags.
+Development builds use `.next-dev` so QA does not collide with production builds.
+
+## Live database workspaces
+
+The dashboard now supports authenticated persistent workflows across 34 Supabase
+tables, while signed-out visitors retain the approved fictional preview.
+Sign in at `/login`; the owner address is verified before administrator access is
+provisioned. See [live platform setup](docs/live-platform.md) for the account,
+learning, recruitment, work and file workflows and the required Auth redirects.
+No service-role key is used in the website.

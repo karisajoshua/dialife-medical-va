@@ -1,3 +1,14 @@
-import Link from "next/link";
-export const metadata={title:"Portal Access | Dialife Medical VA"};
-export default function Login(){return <main className="content-page"><Link href="/">← Back to home</Link><span className="content-kicker">SECURE PORTAL</span><h1>One platform. Dedicated workspaces.</h1><p className="lead">Dialife is developing role-based portals for academy participants, healthcare employers, instructors and administrators.</p><div className="content-grid"><section className="content-card"><h2>Trainee portal</h2><p>Access learning modules, assignments, simulation feedback, progress tracking and completion records.</p></section><section className="content-card"><h2>Employer portal</h2><p>Manage staffing requests, candidate shortlists, interviews and onboarding workflows.</p></section><section className="content-card"><h2>Trainer portal</h2><p>Manage cohorts, assessment rubrics, feedback and learner progress.</p></section><section className="content-card"><h2>Operations portal</h2><p>Review applications, verification, placement workflows and quality metrics.</p></section></div><div className="content-cta"><h2>Sign-in is not available yet</h2><p>Authentication and private account functionality are under development. Please do not enter credentials or patient information on this page.</p><Link className="button bright" href="/">Return Home →</Link></div></main>}
+import { Suspense } from "react";
+import { AuthForm } from "./auth-form";
+import "./auth.css";
+export const metadata = {
+  title: "Sign in | Dialife Medical VA",
+  robots: { index: false, follow: false },
+};
+export default function Login() {
+  return (
+    <Suspense>
+      <AuthForm />
+    </Suspense>
+  );
+}
