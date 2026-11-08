@@ -1,0 +1,260 @@
+.d-sidebar {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #2d4468 transparent;
+}
+.d-signout {
+  border: 1px solid #d8e2f0;
+  border-radius: 7px;
+  padding: 9px 12px;
+  color: #1b4778;
+  background: #f7fbff;
+  width: 100%;
+  margin-top: 12px;
+  font-size: inherit;
+  cursor: pointer;
+}
+.d-live-count {
+  color: #506681;
+}
+.d-workspace-directory {
+  margin: 0 0 1em;
+  border: 1px solid #dfe7f2;
+  border-radius: 0.7em;
+  background: #fff;
+  font-size: 0.85em;
+}
+.d-workspace-directory > summary {
+  cursor: pointer;
+  padding: 0.8em 1em;
+  display: flex;
+  gap: 0.6em;
+  align-items: center;
+  font-weight: 600;
+  color: #28527c;
+}
+.d-workspace-directory > div {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.4em;
+  padding: 1.2em;
+  border-top: 1px solid #e7eef6;
+}
+.d-workspace-directory h3 {
+  font-size: 0.9em;
+  color: #526986;
+  margin-bottom: 0.8em !important;
+}
+.d-workspace-directory section {
+  display: grid;
+  align-content: start;
+  gap: 0.55em;
+}
+.d-workspace-directory a {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  color: #245b9b;
+  padding: 0.35em;
+  border-radius: 0.4em;
+}
+.d-workspace-directory a:hover,
+.d-workspace-directory a[aria-current="page"] {
+  background: #eaf3ff;
+}
+.d-workspace-directory a .d-icon {
+  width: 1em;
+  height: 1em;
+}
+.d-live-empty {
+  padding: 1.5em;
+  font-size: 0.85em;
+  color: #5e718b;
+  line-height: 1.7;
+}
+.d-live-error {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  margin: 1em;
+  background: #fff2ee;
+  border: 1px solid #efc7bc;
+  border-radius: 0.65em;
+  color: #943c2c;
+  font-size: 0.85em;
+  line-height: 1.6;
+}
+.d-live-error .d-small-button {
+  margin-left: auto;
+  white-space: nowrap;
+}
+.d-live-actions {
+  display: flex;
+  gap: 0.6em;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.d-live-actions .d-small-button {
+  font-size: 0.85em;
+}
+.d-cell-value {
+  max-width: 20em;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.d-row-actions {
+  display: flex;
+  gap: 0.4em;
+}
+.d-row-actions button {
+  font-size: 0.9em;
+}
+.d-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6em;
+  padding: 1em 1.4em;
+  font-size: 0.8em;
+}
+.d-pagination > span {
+  margin-right: auto;
+  color: #58708c;
+}
+.d-root button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.d-live-modal {
+  width: 38em;
+  max-height: 90dvh;
+  overflow-y: auto;
+}
+.d-live-modal form > label {
+  display: block;
+  font-size: 0.87em;
+}
+.d-live-modal label > input:not([type="checkbox"]),
+.d-live-modal label > select,
+.d-live-modal label > textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.4em;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 400;
+}
+.d-live-modal textarea {
+  border: 1px solid #ccd7e7;
+  background: white;
+  border-radius: 0.5em;
+  padding: 0.7em 0.85em;
+  color: #0a1025;
+  resize: vertical;
+}
+.d-root .d-checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+}
+.d-checkbox-field input {
+  width: 1.2em;
+  height: 1.2em;
+  min-height: 0;
+  accent-color: #0069e9;
+}
+.d-required {
+  color: #ab4435;
+}
+.d-record-details {
+  display: block !important;
+  margin: 1.4em 0;
+}
+.d-record-details > div {
+  border-bottom: 1px solid #e7edf5;
+  padding: 0.7em 0;
+}
+.d-record-details dt {
+  text-transform: capitalize;
+  font-size: 0.8em;
+  margin-bottom: 0.3em;
+}
+.d-record-details dd {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.65;
+  font-size: 0.9em;
+}
+.d-record-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7em;
+  border-top: 1px solid #edf1f7;
+  padding-top: 1em;
+}
+.d-record-actions button {
+  font-size: 0.8em;
+}
+.d-live-modal .d-live-error {
+  margin: 1em 0;
+}
+.d-modal-actions button {
+  min-height: 44px;
+}
+.d-live-modal form small {
+  display: block;
+  margin-top: 0.25em;
+}
+.d-live-modal form > label.d-checkbox-field {
+  display: flex;
+}
+@media (max-width: 900px) {
+  .d-workspace-directory > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .d-workspace-directory {
+    font-size: 1em;
+  }
+}
+@media (max-width: 600px) {
+  .d-workspace-directory > div {
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
+  .d-workspace-directory a {
+    font-size: 0.85em;
+  }
+  .d-live-actions {
+    width: 100%;
+  }
+  .d-live-actions > button {
+    flex: 1;
+  }
+  .d-live-modal {
+    max-width: calc(100vw - 1em);
+    padding: 1.3em;
+  }
+  .d-pagination {
+    font-size: 0.78em;
+    gap: 0.4em;
+    padding: 1em;
+  }
+  .d-live-error {
+    flex-wrap: wrap;
+  }
+  .d-live-error .d-small-button {
+    margin-left: 0;
+  }
+  .d-record-actions > button {
+    flex-basis: 100%;
+  }
+  .d-row-actions button {
+    min-height: 38px;
+  }
+  .d-root .d-record-details {
+    font-size: 1em;
+  }
+}

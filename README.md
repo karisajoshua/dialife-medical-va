@@ -169,3 +169,12 @@ The portal preview entry point at `/login` links to the dashboard.
 Run `npm ci`, `npm run dev` and `npm run build`. The dev wrapper accepts normal
 Next flags plus preview-host `--host`, `--port` and `--strictPort` flags.
 Development builds use `.next-dev` so QA does not collide with production builds.
+
+## Live database workspaces
+
+The dashboard now supports authenticated persistent workflows across 34 Supabase
+tables, while signed-out visitors retain the approved fictional preview.
+Sign in at `/login`; the owner address is verified before administrator access is
+provisioned. See [live platform setup](docs/live-platform.md) for the account,
+learning, recruitment, work and file workflows and the required Auth redirects.
+No service-role key is used in the website.

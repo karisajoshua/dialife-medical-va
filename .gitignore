@@ -7,3 +7,5 @@ node_modules
 .next-dev
 
 public/__qa.html
+
+supabase/.temp/

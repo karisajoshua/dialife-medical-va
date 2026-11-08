@@ -80,7 +80,7 @@ No remaining actionable P0, P1 or P2 findings after the final combined compariso
 ## Security and validation
 
 - Production build and TypeScript validation passed.
-- No dashboard fetches private data. Demo mutations are React state only.
+- The fictional preview does not fetch private data. Demo mutations are React state only.
 - Verified Supabase anonymous role cannot SELECT any of the seven public tables;
   workspace tables also have no anonymous mutation grants. All seven have RLS.
 - See `docs/dashboard-security.md` for verified database permissions and applied SQL.
@@ -89,9 +89,8 @@ No remaining actionable P0, P1 or P2 findings after the final combined compariso
 
 - P3: the reference's exact generated glyph forms, subtle background texture and
   soft tonal transitions vary slightly from the implemented UI.
-- Authentication and live operations are deliberately outside this fictional
-  preview. They require server-validated identity and role authorization before
-  private data can be connected.
+- Authentication and live operations are now implemented separately from the
+  fictional preview. See `docs/live-platform.md` and `docs/dashboard-security.md`.
 
 
 ## Production verification
@@ -111,3 +110,14 @@ No remaining actionable P0, P1 or P2 findings after the final combined compariso
   Forbidden. Server log inspection is a verification gap, not a claim of no logs.
 - Final production visual comparison: passed, with the same P3 font / tonal
   differences documented above and no actionable P0/P1/P2 findings.
+
+## Live platform extension — 2026-11-08
+
+The approved fictional dashboard, colors, cards and responsive layout are retained.
+Verified accounts now load live records, a role-scoped module directory, persistent
+forms, private documents and real dashboard totals. Empty live tables display
+helpful empty states instead of sample totals. Sign-in, account creation and
+password recovery use the existing public visual system.
+
+The historical visual evidence above describes the approved preview. Production
+verification for the live extension is tracked in the implementation pull request.

@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import Link from "./workspace-link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Icon } from "./icons";
