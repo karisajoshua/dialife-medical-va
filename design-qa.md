@@ -75,7 +75,7 @@ No remaining actionable P0, P1 or P2 findings after the final combined compariso
 - Checked browser console: extension metadata errors were outside the application.
   A transient development RSC request was interrupted during configuration reload;
   subsequent navigation succeeded. The smooth-scroll advisory was addressed on
-  the root HTML element. Production console verification is recorded below after deploy.
+  the root HTML element. Production console verification is recorded below.
 
 ## Security and validation
 
@@ -92,3 +92,22 @@ No remaining actionable P0, P1 or P2 findings after the final combined compariso
 - Authentication and live operations are deliberately outside this fictional
   preview. They require server-validated identity and role authorization before
   private data can be connected.
+
+
+## Production verification
+
+- Production URL: https://dialife-medical-va.vercel.app/dashboard
+- Vercel state: READY; default production alias assigned successfully.
+- Deployed application commit: `e303d782f30f6e2698901962c491fff28b937650`.
+- Merged application commit on the active premium branch: `4d9caf9fef074d10ea1df65df4b104f008d7b443`.
+  Both use the identical source tree `fbc442af6a738fea717f2c54e2f78afb4907c1b1`.
+- Browser-rendered production evidence: `docs/qa/production.jpg`.
+- Same-viewport source-versus-production comparison: `docs/qa/production-comparison.jpg`.
+- Repeated production checks: cohort dialog opens and Escape dismisses it,
+  application navigation and search return the fictional record, and returning
+  to the Command Center succeeds.
+- Production browser console: no application errors or warnings.
+- Vercel runtime log query could not run because the logs API returned 403
+  Forbidden. Server log inspection is a verification gap, not a claim of no logs.
+- Final production visual comparison: passed, with the same P3 font / tonal
+  differences documented above and no actionable P0/P1/P2 findings.
