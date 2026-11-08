@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import Link from "./workspace-link";
 import { useState } from "react";
 import { Icon } from "./icons";
 import { PanelHeading } from "./command-center";

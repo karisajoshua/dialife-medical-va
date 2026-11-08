@@ -1,10 +1,6 @@
 import { notFound } from "next/navigation";
 import { roleContent, type Role } from "../demo-data";
-import { RoleWorkspace } from "../role-workspace";
-export const dynamicParams = false;
-export function generateStaticParams() {
-  return Object.keys(roleContent).map((role) => ({ role }));
-}
+import { DashboardEntry } from "../dashboard-entry";
 export default async function RoleDashboard({
   params,
 }: {
@@ -12,5 +8,5 @@ export default async function RoleDashboard({
 }) {
   const { role } = await params;
   if (!Object.hasOwn(roleContent, role)) notFound();
-  return <RoleWorkspace role={role as Role} />;
+  return <DashboardEntry role={role as Role} />;
 }

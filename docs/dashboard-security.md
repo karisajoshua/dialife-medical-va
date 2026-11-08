@@ -1,43 +1,47 @@
-# Dashboard preview data boundary
+# Dashboard data boundary
 
-The `/dashboard` route and all role workspaces import fictional records from
-`src/app/dashboard/demo-data.ts`. There are no dashboard database requests,
-service credentials, cookies used as roles, or live record endpoints. The sample
-admin identity is display text and grants no permissions. All demo actions use
-React state; reload resets them. CSV exports contain sample aggregate totals.
+Anonymous visitors to `/dashboard` see the approved fictional preview. Preview
+interactions stay in browser state and do not call the private platform API.
+Signed-in users can explicitly select the same preview with `?mode=demo`.
 
-The existing `/api/intake` route remains POST-only, uses the publishable key and
-requests `return=minimal`. It does not expose stored applicant or employer rows.
-Do not add live dashboard reads until server-validated authentication and role /
-record authorization are implemented. Never use a service-role key in a preview.
+Verified accounts see a live workspace. Supabase SSR refreshes the cookie session;
+the server verifies signed JWT claims, then reads the account's current profile
+through RLS. The role is never taken from user-editable metadata. Profile policies
+also require a current, confirmed, non-anonymous account in `auth.users`.
+Removed accounts and changed roles therefore take effect on subsequent requests.
 
-## Supabase verification — 2026-11-08
+Every `/api/platform/*` handler requires this identity, disables shared caching,
+validates fields and uses the user's session with the publishable key. RLS enforces
+record ownership, assigned cohorts, and employer organization membership, including
+when the REST API is called directly. Database triggers protect sensitive fields
+such as roles, grades and timesheet approvals. The deployed app has no service-role
+or management key.
 
-- All seven public tables have row level security enabled.
-- No public-schema views or callable functions bypass those policies.
-- Anonymous reads of applications and employer enquiries have no table grant.
-- An anonymous-role transaction returned zero rows from all five workspace tables
-  before permissions were tightened.
-- Applied remote migration `restrict_anonymous_workspace_access` to remove all
-  unnecessary anonymous privileges from the five workspace tables.
-- Verified afterward: anonymous SELECT, UPDATE, DELETE and TRUNCATE are false on
-  all seven tables. INSERT is allowed only on the two existing public intake tables,
-  with existing policies restricting submitted rows to `status = 'new'`.
-- Existing authenticated ownership policies were retained.
-- Cohorts and training assignments intentionally deny reads until appropriate
-  authenticated role policies are designed. The advisor's informational
-  `RLS Enabled No Policy` notice for these tables is expected.
+All 34 application tables have RLS enabled. Anonymous SELECT is denied on every
+application table. Public intake allows INSERT only on safe input columns and
+requires new status; it returns no stored rows. Submitted applicant records become
+associated with the matching verified email account.
 
-Applied SQL:
+`Admin@dialifeva.com` is the approved bootstrap owner address. It grants no access
+until Supabase verifies that address. New accounts otherwise start as applicants;
+only administrators can assign staff roles. No owner password is preset.
 
-```sql
-revoke all privileges on table
-  public.platform_profiles,
-  public.training_cohorts,
-  public.cohort_enrollments,
-  public.training_assignments,
-  public.assignment_submissions
-from anon;
-```
+Documents use the private `dialife-private` bucket, owner-scoped object paths,
+validated metadata and five-minute signed download URLs. Other accounts cannot
+retrieve their metadata or request signed downloads. Uploads are limited to 10 MB
+and the configured document, image and audio MIME types.
 
-No private record values were used to construct or test the interface.
+## Verification
+
+`tests/platform-rls.sql` passed 45 authorization checks on 2026-11-08, including
+cross-account isolation, forged role metadata, protected grading, employer
+isolation, VA self-approval denial, cohort capacity and anonymous intake. Its
+synthetic fixtures are rolled back. Supabase security advisors were also checked.
+
+`tests/platform-http.mjs` tests the actual authenticated HTTP workflows using
+isolated, disposable identities. Secrets are supplied outside the repository.
+See `docs/live-platform.md` for operational setup and the explicit Supabase Auth
+callback URL configuration.
+
+No patient records or real medical information are included in preview data or
+integration fixtures. Simulation scenarios are fictional training material.

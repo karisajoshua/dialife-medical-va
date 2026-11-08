@@ -1,9 +1,4 @@
-import { Suspense } from "react";
-import { CommandCenter } from "./command-center";
+import { DashboardEntry } from "./dashboard-entry";
 export default function DashboardPage() {
-  return (
-    <Suspense>
-      <CommandCenter />
-    </Suspense>
-  );
+  return <DashboardEntry />;
 }
