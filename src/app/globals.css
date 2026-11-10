@@ -143,3 +143,18 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #10
 .trust-section h2{font-size:clamp(25px,3vw,36px);letter-spacing:-1px;margin:12px 0 0;color:#0c394b}
 .trust-section p{line-height:1.8;color:#436575;font-size:15px}
 @media(max-width:800px){.story-section{grid-template-columns:1fr;padding-top:55px;padding-bottom:55px}.trust-section{grid-template-columns:1fr;gap:12px;padding:26px 24px}}
+
+
+/* Founder story: editorial layout, with a replaceable portrait slot. */
+.founder-story{display:grid;grid-template-columns:minmax(240px,.82fr) minmax(0,1.35fr);gap:clamp(28px,5vw,72px);align-items:center;margin:44px auto 54px}
+.founder-full{margin:46px 0 64px}.founder-compact{padding-top:44px;padding-bottom:44px;border-top:1px solid #dce8eb;border-bottom:1px solid #dce8eb}
+.founder-portrait-placeholder{min-height:490px;border-radius:22px;background:radial-gradient(circle at 50% 37%,#238e94 0%,transparent 45%),linear-gradient(145deg,#073b50,#0b6d75);color:#e4fffb;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:25px;position:relative;overflow:hidden}
+.founder-portrait-placeholder:before{content:"";position:absolute;inset:22px;border:1px solid #ffffff36;border-radius:16px;pointer-events:none}
+.founder-monogram{display:grid;place-items:center;width:148px;height:148px;border-radius:50%;border:1px solid #ffffff7a;background:#ffffff17;font-size:60px;font-weight:700;letter-spacing:-4px}
+.founder-portrait-placeholder span{font-size:12px;letter-spacing:2px;font-weight:700}.founder-portrait-placeholder small{font-size:12px;color:#b7dedc}
+.founder-narrative h2{font-size:clamp(29px,3.4vw,45px);line-height:1.14;letter-spacing:-1.2px;margin:17px 0 22px;color:#092f43}.founder-narrative h2 em{font-style:normal;color:#008d85}
+.founder-narrative p{font-size:15px;line-height:1.78;color:#405a68;margin:0 0 16px}.founder-narrative strong{color:#123c4c}
+.founder-credentials{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0}.founder-credentials span{display:inline-flex;align-items:center;gap:8px;border-radius:30px;background:#e7f7f4;color:#095e62;font-size:12px;font-weight:700;padding:9px 12px}
+.founder-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}.founder-text-link{display:inline-flex;align-items:center;gap:7px;color:#087b79;font-size:13px;font-weight:700}
+.founder-narrative .founder-signature{display:flex;flex-direction:column;gap:2px;margin:26px 0 0;border-left:3px solid #0ba99b;padding-left:14px;font-size:13px}.founder-signature span{font-size:12px;color:#64808a}
+@media(max-width:760px){.founder-story{grid-template-columns:1fr;gap:26px}.founder-portrait-placeholder{min-height:280px}.founder-monogram{width:108px;height:108px;font-size:42px}.founder-compact{padding-top:30px;padding-bottom:30px}}
